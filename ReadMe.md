@@ -10,5 +10,7 @@
 
 ![template2](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/06b434ae-739f-4d6b-9341-b5e9e2e0161b)
 
+![template 3](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/723edce2-074e-4025-9e7d-8664bda5cc2f)
 
 
+![template4](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/9bfea594-fd18-44e3-8c0c-0c5cc2152a98)
