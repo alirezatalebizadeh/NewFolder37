@@ -17,7 +17,7 @@ function getAllUsers() {
   fetch('http://localhost:3000/api/users/')
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       data.forEach(user => {
         usersContainer.insertAdjacentHTML('beforeend', `
               <div class="user-box">
@@ -124,11 +124,12 @@ function clearInputsEdit() {
   firstNameInput.value = ''
   lastNameInput.value = ''
   userNameInput.value = ''
-
 }
 
-// document.body.addEventListener('click', (e) => {
-//   if (e.target.class !== 'modal-content') {
-//     console.log(true);
-//   }
-// })
+
+
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Escape') {
+    closeModal()
+  }
+})
