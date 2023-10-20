@@ -32,7 +32,7 @@ addNewSession.addEventListener('click', (e) => {
         title: sessionNameInput.value,
         time: sessionTimeInput.value,
         // isFree: Boolean(Number(sessionPriceInput.value)),
-        isFree: isFreeCourse(sessionPriceInput.value),
+        isFree: isFreeCourse(),
         course: mainCourseElem.innerHTML,
     }
 
@@ -62,14 +62,15 @@ window.addEventListener('click', (e) => {
     }
 })
 
-function isFreeCourse(value) {
-    if (value) {
+
+
+function isFreeCourse() {
+    if (isFreeValue) {
         return true
     } else {
         return false
     }
 }
-
 
 //! is checkbox is checked then inputPrice is desabled
 isFree.addEventListener("input", (e) => {
@@ -82,5 +83,5 @@ isFree.addEventListener("input", (e) => {
         isFreeValue = false
         sessionPriceInput.disabled = false
     }
-
+    isFreeCourse()
 })    
