@@ -5,7 +5,9 @@ let addNewSession = document.querySelector('.add-new-session-btn')
 let sessionSelectCourseBox = document.querySelector('.session-dropdown-box')
 let mainCourseElem = document.querySelector('.session-dropdown-text')
 let allCoursesListItem = document.querySelectorAll('.session-dropdown-menu-item')
+let allPriceBadge = document.querySelectorAll('.session-price-badge')
 let isFree = document.querySelector('#isFree')
+let sessionContainer = document.querySelector('.sessions')
 let isFreeValue = true;
 
 
@@ -16,6 +18,31 @@ allCoursesListItem.forEach(course => {
     })
 })
 
+//! get all session from db
+function getAllSessions() {
+    sessionContainer.innerHTML = ''
+    fetch('http://localhost:3000/api/sessions')
+        .then(res => res.json())
+        .then(sessions => {
+            sessions.forEach(session => {
+                sessionContainer.insertAdjacentHTML('beforeend', `
+            <div class="session-box">
+                  <div>
+                    <h1 class="session-name-title">${session.title}</h1>
+                    <span class="session-category">${session.course}</span>
+                  </div>
+                  <div>
+                    <span class="session-price-badge">${session.isFree ? 'free' : 'not free'}</span>
+                    <span class= "session-time" > ${session.time}</span >
+                  </div >
+                </div >
+                `)
+            })
+        })
+}
+
+
+
 //! clear value of inputs
 function clearInputs() {
     sessionNameInput.value = ''
@@ -24,29 +51,35 @@ function clearInputs() {
     mainCourseElem.value = ''
 }
 
-//! add session
+
+//! add session to db
 addNewSession.addEventListener('click', (e) => {
     e.preventDefault();
 
     let newSessionData = {
         title: sessionNameInput.value,
         time: sessionTimeInput.value,
-        // isFree: Boolean(Number(sessionPriceInput.value)),
         isFree: isFreeCourse(),
         course: mainCourseElem.innerHTML,
     }
 
 
-    fetch(`http://localhost:3000/api/sessions`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newSessionData)
-    }).then(res => {
-        clearInputs()
-        alert('course added')
-    })
+    if (sessionNameInput.value.length > 5 && sessionTimeInput.value.length) {
+        fetch(`http://localhost:3000/api/sessions`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newSessionData)
+        }).then(res => {
+            clearInputs()
+            alert('course added')
+            getAllSessions()
+        })
+    } else {
+        alert('please insert valid value')
+    }
+
 })
 
 
@@ -54,6 +87,7 @@ addNewSession.addEventListener('click', (e) => {
 sessionSelectCourseBox.addEventListener('click', (e) => {
     e.target.classList.add('active')
 })
+
 
 //! hiddon item of dropDown
 window.addEventListener('click', (e) => {
@@ -72,6 +106,7 @@ function isFreeCourse() {
     }
 }
 
+
 //! is checkbox is checked then inputPrice is desabled
 isFree.addEventListener("input", (e) => {
 
@@ -84,4 +119,7 @@ isFree.addEventListener("input", (e) => {
         sessionPriceInput.disabled = false
     }
     isFreeCourse()
-})    
+})
+
+window.addEventListener('load', getAllSessions)
+
