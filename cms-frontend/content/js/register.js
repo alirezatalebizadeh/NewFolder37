@@ -19,7 +19,7 @@ submitBtn.addEventListener('click', (e) => {
         firstName: firstnameInput.value.trim(),
         lastName: lastnameInput.value.trim(),
         userName: usernameInput.value.trim(),
-        profile: './content/img/profile.png'
+        profile: 'content/img/profile/banana.png'
     }
 
     console.log(newUserInfo);

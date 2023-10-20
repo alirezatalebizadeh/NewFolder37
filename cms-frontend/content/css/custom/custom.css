@@ -7,7 +7,7 @@
     --white-800: #9da8b8;
     --white-700: #BBC6D5;
     --main-color: #676879;
-    --primary-color:#133141;
+    --primary-color: #133141;
     --blue: #009CF0;
 
     /* semantic colors */
@@ -22,31 +22,41 @@
 
     /* border */
     --golden-border: 1px solid #F6DF00;
-    
+
     /* gradients */
-    --blue-to-black-gradient: linear-gradient(to bottom, rgba(42,78,92, 0.3) 30%, black 100%);
+    --blue-to-black-gradient: linear-gradient(to bottom, rgba(42, 78, 92, 0.3) 30%, black 100%);
 
     /* shadow */
     --shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
 }
+
 * {
     font-family: 'Comfortaa', cursive !important;
 }
+
 a {
     text-decoration: none;
 }
+
 .dark-blue {
     color: var(--dark-blue);
 }
+
 .orange {
     color: var(--orange);
 }
+
 body {
     /* reset user select */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+
 .mt-3 {
     margin-top: 30px;
+}
+
+button {
+    border-radius: 5px;
 }
