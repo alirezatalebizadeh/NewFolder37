@@ -1,6 +1,6 @@
 default route: localhost:3000/api/
 
-<!-- ! ---------------------------- Start Users Apis ----------------------------- ! -->
+<!-- ! ------- Start Users Apis -------- ! -->
 
 // Get All Users
     Api: /users/
@@ -39,10 +39,10 @@ default route: localhost:3000/api/
     }
 
 
-<!-- ! ---------------------------- Finish Users Apis ----------------------------- ! -->
+<!-- ! ---- Finish Users Apis -------- ! -->
 
 
-<!-- ! ---------------------------- Start Admins Apis ----------------------------- ! -->
+<!-- ! ------- Start Admins Apis -------- ! -->
 
 
 // Get All Admins
@@ -67,9 +67,9 @@ default route: localhost:3000/api/
     }
 
 
-<!-- ! ---------------------------- Finish Admins Apis ----------------------------- ! -->
+<!-- ! ------- Finish Admins Apis -------- ! -->
 
-<!-- ! ---------------------------- Start Courses Apis ----------------------------- ! -->
+<!-- ! ------- Start Courses Apis -------- ! -->
 
 
 // Get All Courses
@@ -96,11 +96,11 @@ default route: localhost:3000/api/
     method: DELETE
 
 
-<!-- ! ---------------------------- Finish CoursesApis ----------------------------- ! -->
+<!-- ! ------- Finish CoursesApis -------- ! -->
 
 
 
-<!-- ! ---------------------------- Start Sessions Apis ----------------------------- ! -->
+<!-- ! ------- Start Sessions Apis -------- ! -->
 
 
 // Get All Sessions
@@ -123,4 +123,4 @@ default route: localhost:3000/api/
     Api: /sessions/:id
     method: DELETE
 
-<!-- ! ---------------------------- Finish Sessions Apis ----------------------------- ! -->
+<!-- ! ------- Finish Sessions Apis -------- ! -->

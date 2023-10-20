@@ -1003,12 +1003,13 @@
                   <div class="input-group session-price-group valid">
                     <!-- add valid class or invalid class to change color of input -->
                     <input
-                      type="number"
+                      type="text"
                       class="form-input"
                       name="session-price-input"
                       id="session-price-input"
                       placeholder="nothing"
                       spellcheck="false"
+                      
                     />
                     <label for="session-price-input" class="input-label"
                       >session price</label
@@ -1103,7 +1104,7 @@
                 <!-- ! -- session select course box -- ! -->
                 <div class="session-select-course-box w-100">
                   <!-- !  session dropdown box -- ! -->
-                  <div class="session-dropdown-box valid">
+                  <div class="session-dropdown-box valid" id="dropDownCourse">
                     <!-- add active to open the session dropdown menu box -->
                     <!-- add valid class or invalid class to change color of input -->
                     <span class="session-dropdown-icon">
@@ -1214,13 +1215,13 @@
 
                     <!-- ! -- session dropdown menu box -- ! -->
                     <ul class="session-dropdown-menu-box">
-                      <li class="session-dropdown-menu-item">red banana</li>
-                      <li class="session-dropdown-menu-item">red banana</li>
-                      <li class="session-dropdown-menu-item">red banana</li>
-                      <li class="session-dropdown-menu-item">red banana</li>
-                      <li class="session-dropdown-menu-item">red banana</li>
-                      <li class="session-dropdown-menu-item">golden banana</li>
-                      <li class="session-dropdown-menu-item">black banana</li>
+                      <li class="session-dropdown-menu-item">learn React</li>
+                      <li class="session-dropdown-menu-item">learn Vue</li>
+                      <li class="session-dropdown-menu-item">Learn vsCode</li>
+                      <li class="session-dropdown-menu-item">learn Js</li>
+                      <li class="session-dropdown-menu-item">learn Html</li>
+                      <li class="session-dropdown-menu-item">learn Css</li>
+                      <li class="session-dropdown-menu-item">learn Sass</li>
                     </ul>
                   </div>
                   <h3 class="message valid-message session-time-message">
@@ -1235,7 +1236,7 @@
               <div class="session-check-free-box mt-3">
                 free:
                 <label class="session-check-free-label">
-                  <input checked="checked" type="checkbox" />
+                  <input checked="checked" id="isFree" type="checkbox" />
                   <div class="checkmark"></div>
                 </label>
               </div>
@@ -1322,5 +1323,7 @@
         </section>
       </main>
     </div>
+
+    <script src="./content/js/session.js"></script>
   </body>
 </html>
