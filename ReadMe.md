@@ -6,7 +6,9 @@
 3) npx nodemon server.js
 
 
+![template1](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/76bde698-76d1-4063-ba89-f6b7d02f0d72)
 
+![template2](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/06b434ae-739f-4d6b-9341-b5e9e2e0161b)
 
 
 
