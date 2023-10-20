@@ -8,8 +8,11 @@ let allCoursesListItem = document.querySelectorAll('.session-dropdown-menu-item'
 let allPriceBadge = document.querySelectorAll('.session-price-badge')
 let isFree = document.querySelector('#isFree')
 let sessionContainer = document.querySelector('.sessions')
+let removeModal = document.querySelector('.remove_modal')
+let closeModalBtn = document.querySelector('.unaccept-btn')
+let deleteBtn = document.querySelector('.accept-btn')
 let isFreeValue = true;
-
+let mainSessionID = null;
 
 //! add menu to dropDown
 allCoursesListItem.forEach(course => {
@@ -33,7 +36,9 @@ function getAllSessions() {
                   </div>
                   <div>
                     <span class="session-price-badge">${session.isFree ? 'free' : 'not free'}</span>
-                    <span class= "session-time" > ${session.time}</span >
+                    <span> ${session.time}</span>
+                    <span style="cursor : pointer;" onclick='showRemoveModal("${session._id}")'>X</span>
+                    
                   </div >
                 </div >
                 `)
@@ -42,6 +47,17 @@ function getAllSessions() {
 }
 
 
+//! show modal
+function showRemoveModal(val) {
+    mainSessionID = val
+    removeModal.classList.add('visible')
+}
+
+
+//! hiddon modal
+function closeModal() {
+    removeModal.classList.remove('visible')
+}
 
 //! clear value of inputs
 function clearInputs() {
@@ -106,6 +122,19 @@ function isFreeCourse() {
     }
 }
 
+function deleteSession() {
+    fetch(`http://localhost:3000/api/sessions/${mainSessionID}`, {
+        method: 'DELETE',
+
+    })
+        .then(res => {
+            console.log(res);
+            closeModal()
+            getAllSessions()
+        })
+
+}
+
 
 //! is checkbox is checked then inputPrice is desabled
 isFree.addEventListener("input", (e) => {
@@ -122,4 +151,5 @@ isFree.addEventListener("input", (e) => {
 })
 
 window.addEventListener('load', getAllSessions)
-
+closeModalBtn.addEventListener('click', closeModal)
+deleteBtn.addEventListener('click', deleteSession)

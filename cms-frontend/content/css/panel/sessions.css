@@ -1,5 +1,6 @@
 @import url(user-pannel.css);
 @import url(../forms/forms.css);
+@import url(../modal/modal.css);
 
 .active-tab {
     width: 150px;
