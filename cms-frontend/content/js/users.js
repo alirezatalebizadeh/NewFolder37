@@ -1,3 +1,5 @@
+import './utils/shared.js'
+import showDataAdmin from './utils/shared.js'
 let usersContainer = document.querySelector('.users-wrap')
 let removeModalContainer = document.querySelector('.remove_modal')
 let removeUserBtn = document.querySelector('.accept-btn')
@@ -6,7 +8,13 @@ let editBtn = document.querySelector('.edit_btn')
 let userNameInput = document.querySelector('#username-input')
 let firstNameInput = document.querySelector('#first-name-input')
 let lastNameInput = document.querySelector('#last-name-input')
+let logOutBtn = document.querySelector('.sign-out-btn')
 let mainUserID = null;
+
+
+function changeBackground() {
+  document.body.classList.toggle('black')
+}
 
 
 
@@ -86,14 +94,9 @@ removeUserBtn.addEventListener('click', () => {
 })
 
 
-
 window.addEventListener('load', () => {
   getAllUsers()
-
-  let adminID = localStorage.getItem('adminID')
-  if (!adminID) {
-    location.href = 'http://127.0.0.1:5501/cms-frontend/login.html'
-  }
+  showDataAdmin()
 })
 
 
@@ -141,4 +144,10 @@ window.addEventListener('keydown', (e) => {
     closeModal()
   }
 })
+
+logOutBtn.addEventListener('click', () => {
+  localStorage.clear();
+  location.href = 'http://127.0.0.1:5501/cms-frontend/login.html'
+})
+
 

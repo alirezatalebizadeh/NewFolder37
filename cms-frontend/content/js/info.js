@@ -1,3 +1,5 @@
+import './utils/shared.js'
+import showDataAdmin from './utils/shared.js'
 let firstNameInput = document.querySelector('#first-name-input')
 let lastNameInput = document.querySelector('#last-name-input')
 let currentPasswordInput = document.querySelector('#current-password-input')
@@ -20,7 +22,6 @@ function showInfoAdmin() {
     fetch(`http://localhost:3000/api/admins/${mainAdminID}`)
         .then(res => res.json())
         .then(mainAdmin => {
-            console.log(mainAdmin);
             firstNameInput.value = mainAdmin.firstName;
             lastNameInput.value = mainAdmin.lastName;
             userNameInput.value = mainAdmin.userName;
@@ -63,4 +64,8 @@ editInfoBtn.addEventListener('click', (e) => {
 
 
 
-window.addEventListener('load', showInfoAdmin)
+
+window.addEventListener('load', () => {
+    showDataAdmin()
+    showInfoAdmin()
+})

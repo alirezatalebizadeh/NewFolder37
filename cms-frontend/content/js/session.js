@@ -1,3 +1,5 @@
+import './utils/shared.js'
+import showDataAdmin from './utils/shared.js'
 let sessionNameInput = document.querySelector('#session-name-input')
 let sessionTimeInput = document.querySelector('#session-time-input')
 let sessionPriceInput = document.querySelector('#session-price-input')
@@ -37,7 +39,7 @@ function getAllSessions() {
                   <div>
                     <span class="session-price-badge">${session.isFree ? 'free' : 'not free'}</span>
                     <span> ${session.time}</span>
-                    <span style="cursor : pointer;" onclick='showRemoveModal("${session._id}")'>X</span>
+                    <span style="cursor:pointer;" onclick='showRemoveModal("${session._id}")'>X</span>
                     
                   </div >
                 </div >
@@ -151,6 +153,9 @@ isFree.addEventListener("input", (e) => {
     isFreeCourse()
 })
 
-window.addEventListener('load', getAllSessions)
+window.addEventListener('load', () => {
+    getAllSessions()
+    showDataAdmin()
+})
 closeModalBtn.addEventListener('click', closeModal)
 deleteBtn.addEventListener('click', deleteSession)

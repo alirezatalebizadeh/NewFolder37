@@ -1,3 +1,5 @@
+import './utils/shared.js'
+import showDataAdmin from './utils/shared.js'
 let courseWrapper = document.querySelector('.courses-wrap')
 let showModalBtn = document.querySelector('.add-new-course-btn')
 let editModal = document.querySelector('.editModal')
@@ -10,12 +12,12 @@ let timeCourseInput = document.querySelector('#course-time-input')
 
 //! get all courses from db
 function getAllCourses() {
-    courseWrapper.innerHTML = ''
-    fetch('http://localhost:3000/api/courses')
-        .then(res => res.json())
-        .then(courses => {
-            courses.forEach(course => {
-                courseWrapper.insertAdjacentHTML('beforeend', `
+  courseWrapper.innerHTML = ''
+  fetch('http://localhost:3000/api/courses')
+    .then(res => res.json())
+    .then(courses => {
+      courses.forEach(course => {
+        courseWrapper.insertAdjacentHTML('beforeend', `
                 <article class="course-box">
                 <img src="${course.cover}" class="course-img" alt="">
                 <!-- course image -->
@@ -86,8 +88,8 @@ function getAllCourses() {
                 </div>
               </article>
                 `)
-            })
-        })
+      })
+    })
 }
 
 
@@ -95,64 +97,65 @@ function getAllCourses() {
 
 //! show modal
 function showModal() {
-    editModal.classList.add('visible')
+  editModal.classList.add('visible')
 
 }
 //! add course to db
 function createCourse(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    let newCourse = {
-        title: titleCourseInput.value.trim(),
-        body: '    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus tenetur est deleniti, voluptates suscipit autem.',
-        time: timeCourseInput.value.trim(),
-        price: priceCourseInput.value.trim(),
-        students: '250',
-        category: categoryCourseInput.value.trim(),
-        cover: './content/img/course/course.png',
-    }
+  let newCourse = {
+    title: titleCourseInput.value.trim(),
+    body: '    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus tenetur est deleniti, voluptates suscipit autem.',
+    time: timeCourseInput.value.trim(),
+    price: priceCourseInput.value.trim(),
+    students: '250',
+    category: categoryCourseInput.value.trim(),
+    cover: './content/img/course/course.png',
+  }
 
 
-    fetch(`http://localhost:3000/api/courses`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newCourse)
+  fetch(`http://localhost:3000/api/courses`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newCourse)
+  })
+    .then(res => res.json())
+    .then(data => {
+      closeModal()
+      getAllCourses()
+      clearInputs()
     })
-        .then(res => res.json())
-        .then(data => {
-            closeModal()
-            getAllCourses()
-            clearInputs()
-        })
 }
 
 
 //! close modal
 function closeModal() {
-    editModal.classList.remove('visible')
+  editModal.classList.remove('visible')
 }
 
 function clearInputs() {
-    titleCourseInput.value = ''
-    priceCourseInput.value = ''
-    categoryCourseInput.value = ''
-    timeCourseInput.value = ''
+  titleCourseInput.value = ''
+  priceCourseInput.value = ''
+  categoryCourseInput.value = ''
+  timeCourseInput.value = ''
 
 }
 
 
 
-window.addEventListener('load', (e) => {
-    getAllCourses()
+window.addEventListener('load', () => {
+  getAllCourses()
+  showDataAdmin()
 })
 
 //! close modal with click in escape button in keyboard
 window.addEventListener('keydown', (e) => {
-    if (e.code === 'Escape') {
-        closeModal()
-    }
+  if (e.code === 'Escape') {
+    closeModal()
+  }
 })
 
 showModalBtn.addEventListener('click', showModal)
