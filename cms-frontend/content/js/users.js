@@ -87,7 +87,16 @@ removeUserBtn.addEventListener('click', () => {
 
 
 
-window.addEventListener('load', getAllUsers)
+window.addEventListener('load', () => {
+  getAllUsers()
+
+  let adminID = localStorage.getItem('adminID')
+  if (!adminID) {
+    location.href = 'http://127.0.0.1:5501/cms-frontend/login.html'
+  }
+})
+
+
 cancelDeleteBtn.addEventListener('click', closeModal)
 
 
@@ -127,9 +136,9 @@ function clearInputsEdit() {
 }
 
 
-
 window.addEventListener('keydown', (e) => {
   if (e.code === 'Escape') {
     closeModal()
   }
 })
+
