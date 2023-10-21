@@ -14,3 +14,4 @@
 
 
 ![template4](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/9bfea594-fd18-44e3-8c0c-0c5cc2152a98)
+![template5](https://github.com/alirezatalebizadeh/cms-with-backend-express-js-/assets/104105725/0ef9b3ba-c817-48a6-972e-9c760660de1d)
