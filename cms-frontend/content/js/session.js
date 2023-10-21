@@ -137,7 +137,7 @@ function deleteSession() {
 }
 
 
-//! is checkbox is checked then inputPrice is desabled
+//! is checkbox is checked then inputPrice is disabled
 isFree.addEventListener("input", (e) => {
 
     if (isFree.checked) {
