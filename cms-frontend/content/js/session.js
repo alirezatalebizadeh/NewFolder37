@@ -14,7 +14,7 @@ let deleteBtn = document.querySelector('.accept-btn')
 let isFreeValue = true;
 let mainSessionID = null;
 
-//! add menu to dropDown
+//!  select item in drop down
 allCoursesListItem.forEach(course => {
     course.addEventListener('click', (e) => {
         mainCourseElem.innerHTML = e.target.innerHTML
@@ -113,7 +113,7 @@ window.addEventListener('click', (e) => {
 })
 
 
-
+//! if course is free then return true
 function isFreeCourse() {
     if (isFreeValue) {
         return true
@@ -122,6 +122,7 @@ function isFreeCourse() {
     }
 }
 
+//! delete session from db
 function deleteSession() {
     fetch(`http://localhost:3000/api/sessions/${mainSessionID}`, {
         method: 'DELETE',
